@@ -25,7 +25,7 @@ if bottoken != None:
     try:
         BotzHub = TelegramClient("bot", apiid, apihash).start(bot_token=bottoken)
     except Exception as e:
-        print(f"ERROR!\n{str(e)}")
+        print(f'ERROR!\n{e}')
         print("Bot is quiting...")
         exit()
 else:
@@ -137,7 +137,7 @@ async def get_results(query, a):
         t = buts
         buts = []
         for i in t:
-            if not len(buts) > 100:
+            if len(buts) <= 100:
                 buts.append(i)
     return await a.edit(
         "Found {} reults for {}!".format(len(buts), query), buttons=buts
